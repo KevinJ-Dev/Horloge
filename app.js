@@ -4,7 +4,8 @@ const http = require('http');
 const server = http.createServer(app);
 
 app.get('/', (req, res) => {
-  res.json({'Hour':(new Date()).getHours(), 'minutes':(new Date()).getMinutes(), 'secondes':(new Date()).getSeconds()});
+  let hour = new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes() + ':' + new Date(Date.now()).getSeconds();
+  res.json({hour: hour});
 });
 
 server.listen(3000, () => {
